@@ -18,6 +18,20 @@ Or install it yourself as:
 
     $ gem install comable-apartment
 
+Add the following to your `config/application.rb`:
+
+```ruby
+module MyApplication
+  class Application < Rails::Application
+    ...
+
+    config.middleware.use 'Comable::Apartment::Elevator'
+
+    ...
+  end
+end
+```
+
 ## Usage
 
 TODO: Write usage instructions here
