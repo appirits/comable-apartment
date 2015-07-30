@@ -1,0 +1,22 @@
+language:
+  - ruby
+rvm:
+  - 2.1.5
+  - 2.2.0
+  - ruby-head
+gemfile:
+  - gemfiles/active_record_40.gemfile
+  - gemfiles/active_record_41.gemfile
+  - gemfiles/active_record_42.gemfile
+  - gemfiles/active_record_edge.gemfile
+before_script:
+  - psql -U postgres -c 'CREATE ROLE dummy WITH LOGIN CREATEDB;'
+  # Replace below line after close the folloing issue:
+  #   https://github.com/influitive/apartment/issues/145
+  # `bundle exec rake db:create RAILS_ENV=test`
+  - psql -U postgres -c 'CREATE DATABASE dummy_test WITH OWNER=dummy;'
+  - bundle exec rake db:migrate RAILS_ENV=test
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - gemfile: gemfiles/active_record_edge.gemfile

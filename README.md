@@ -1,5 +1,7 @@
 # Comable::Apartment
 
+[![Build Status](https://img.shields.io/travis/appirits/comable-apartment.svg?style=flat-square)](http://travis-ci.org/appirits/comable-apartment)
+
 TODO: Write a gem description
 
 ## Installation

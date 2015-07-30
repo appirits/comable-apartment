@@ -1,0 +1,8 @@
+eval File.read(File.expand_path('../common.gemfile', __FILE__))
+
+git 'git://github.com/rails/rails.git' do
+  gem 'railties'
+  gem 'activerecord', require: 'active_record'
+end
+
+gem 'arel', github: 'rails/arel'
