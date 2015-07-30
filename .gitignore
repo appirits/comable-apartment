@@ -6,6 +6,9 @@
 /doc/
 /pkg/
 /spec/reports/
+/test/dummy/db/
+/test/dummy/log/
+/test/dummy/tmp/
 /tmp/
 *.bundle
 *.so
