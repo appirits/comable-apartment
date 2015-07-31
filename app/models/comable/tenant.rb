@@ -10,7 +10,7 @@ module Comable
         # Rack::Request to ActionDispatch::Request
         request = ActionDispatch::Request.new(request.env)
 
-        tenant = find_by(domain: request.domain)
+        tenant = find_by(domain: request.domain) if request.domain.present?
         tenant ||= find_by!(name: request.subdomains.first)
         tenant.name
       end

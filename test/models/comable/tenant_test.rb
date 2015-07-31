@@ -13,37 +13,63 @@ class TenantTest < ActiveSupport::TestCase
     domain = 'domain.com'
     subject.update!(domain: domain)
 
-    request = Minitest::Mock.new
-    request.expect(:env, nil)
-    request.expect(:domain, domain)
+    request_mock do |request|
+      request.stub(:domain, domain)
 
-    ActionDispatch::Request.stub(:new, request) do
       assert_equal subject.class.from_request(request), subject.name
     end
   end
 
   test '.from_request should returns the tenant name when the request to the existing subdomain' do
     subdomain = 'subdomain'
-    subject.update!(name: subdomain)
+    subject.update!(domain: nil, name: subdomain)
 
-    request = Minitest::Mock.new
-    request.expect(:env, nil)
-    request.expect(:domain, nil)
-    request.expect(:subdomains, [subdomain])
+    request_mock do |request|
+      request.stub(:domain, nil)
+      request.stub(:subdomains, [subdomain])
 
-    ActionDispatch::Request.stub(:new, request) do
       assert_equal subject.class.from_request(request), subject.name
     end
   end
 
+  test '.from_request should fails when the request to the nonexistent domain' do
+    subject.update!(domain: 'domain.com')
+
+    request_mock do |request|
+      request.stub(:domain, nil)
+      request.stub(:subdomains, [])
+
+      assert_raises(ActiveRecord::RecordNotFound) { subject.class.from_request(request) }
+    end
+  end
+
   test '.from_request should fails when the request to the nonexistent subdomain' do
-    request = Minitest::Mock.new
-    request.expect(:env, nil)
-    request.expect(:domain, nil)
-    request.expect(:subdomains, [])
+    subject.update!(domain: nil, name: 'subdomain')
+
+    request_mock do |request|
+      request.stub(:domain, nil)
+      request.stub(:subdomains, ['nonexistent subdomain'])
+
+      assert_raises(ActiveRecord::RecordNotFound) { subject.class.from_request(request) }
+    end
+  end
+
+  private
+
+  def mock
+    Class.new do
+      def stub(method, value)
+        singleton_class.send(:define_method, method) { value }
+      end
+    end
+  end
+
+  def request_mock
+    request = mock.new
+    request.stub(:env, nil)
 
     ActionDispatch::Request.stub(:new, request) do
-      assert_raises(ActiveRecord::RecordNotFound) { subject.class.from_request(request) }
+      yield request
     end
   end
 end
