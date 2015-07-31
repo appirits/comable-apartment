@@ -5,6 +5,7 @@ class TenantTest < ActiveSupport::TestCase
 
   should validate_uniqueness_of(:name)
   should validate_presence_of(:name)
+  should validate_exclusion_of(:name).in_array(%w( www ))
   should validate_length_of(:name).is_at_most(255)
   should validate_length_of(:domain).is_at_most(255)
 

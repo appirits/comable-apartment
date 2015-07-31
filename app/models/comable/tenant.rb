@@ -1,6 +1,6 @@
 module Comable
   class Tenant < ActiveRecord::Base
-    validates :name, uniqueness: true, presence: true, length: { maximum: 255 }
+    validates :name, uniqueness: true, presence: true, length: { maximum: 255 }, exclusion: { in: %w( www ) }
     validates :domain, length: { maximum: 255 }
 
     after_create :migrate, unless: -> { Rails.env.test? }
