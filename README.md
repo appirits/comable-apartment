@@ -20,17 +20,13 @@ Or install it yourself as:
 
     $ gem install comable-apartment
 
-Add the following to your `config/application.rb`:
+Add the following to your `config/routes.rb`:
 
 ```ruby
-module MyApplication
-  class Application < Rails::Application
-    ...
+Rails.application.routes.draw do
+  mount Comable::Apartment::Engine, at: '/'
 
-    config.middleware.use 'Comable::Apartment::Elevator'
-
-    ...
-  end
+  ...
 end
 ```
 

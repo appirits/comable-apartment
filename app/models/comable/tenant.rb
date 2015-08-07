@@ -6,13 +6,10 @@ module Comable
     after_create :migrate, unless: -> { Rails.env.test? }
 
     class << self
-      def from_request(request)
-        # Rack::Request to ActionDispatch::Request
-        request = ActionDispatch::Request.new(request.env)
-
+      def name_from_request(request)
         tenant = find_by(domain: request.domain) if request.domain.present?
-        tenant ||= find_by!(name: request.subdomains.first)
-        tenant.name
+        tenant ||= find_by(name: request.subdomains.first)
+        tenant.try(:name)
       end
     end
 
