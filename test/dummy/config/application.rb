@@ -23,6 +23,10 @@ module Dummy
     config.active_support.deprecation = :log
     config.eager_load = false
     config.root = File.expand_path('../../', __FILE__)
+
+    # Show full error reports and disable caching.
+    config.consider_all_requests_local = true
+    config.action_controller.perform_caching = false
   end
 end
 
