@@ -3,7 +3,8 @@ module Comable
     validates :name, uniqueness: true, presence: true, length: { maximum: 255 }, exclusion: { in: %w( www ) }
     validates :domain, length: { maximum: 255 }
 
-    after_create :migrate, unless: -> { Rails.env.test? }
+    after_create :create, unless: -> { Rails.env.test? }
+    before_destroy :drop, unless: -> { Rails.env.test? }
 
     class << self
       # @params request [ActionDispatch::Request] an instance of ActionDispatch::Request
@@ -15,8 +16,12 @@ module Comable
       end
     end
 
-    def migrate
+    def create
       ::Apartment::Tenant.create(name)
+    end
+
+    def drop
+      ::Apartment::Tenant.drop(name)
     end
   end
 end

@@ -1,0 +1,28 @@
+.comable-page
+  .comable-page-heading
+    ul.pull-right.list-inline
+      li
+        = link_to Comable::Apartment.t(:new), comable_apartment.new_tenant_path, class: 'btn btn-default'
+
+    h1.page-header
+      = Comable::Apartment.t(:tenants)
+      small<
+        | #{@tenants.size} #{Comable::Apartment.t(:results)}
+
+  .comable-page-body
+    - if @tenants.empty?
+      = Comable::Apartment.t(:not_found)
+    - else
+      table.table.table-striped
+        thead
+          th
+            = @tenants.klass.human_attribute_name(:name)
+          th
+            = @tenants.klass.human_attribute_name(:domain)
+        tbody
+          - @tenants.each do |tenant|
+            tr
+              td
+                = link_to tenant.name, comable_apartment.tenant_path(tenant)
+              td
+                = tenant.domain

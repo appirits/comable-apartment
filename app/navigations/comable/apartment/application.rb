@@ -11,7 +11,7 @@ AwesomeAdminLayout.setup(only: Comable::Apartment::ApplicationController) do |co
     end
 
     item Comable.t('apartment.tenants') do
-      link '/'
+      link comable_apartment.tenants_path
       icon 'building'
     end
 

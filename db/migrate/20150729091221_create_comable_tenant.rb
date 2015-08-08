@@ -3,6 +3,7 @@ class CreateComableTenant < ActiveRecord::Migration
     create_table :comable_tenants do |t|
       t.string :name, null: false, unique: true
       t.string :domain
+      t.timestamps null: false
     end
   end
 end

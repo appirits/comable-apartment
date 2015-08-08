@@ -1,0 +1,27 @@
+.comable-page
+  .comable-main-fixed-top
+    .comable-page-heading
+      ul.pull-right.list-inline
+        li
+          = link_to_save
+
+      h1.page-header
+        ol.breadcrumb
+          li>
+            = link_to Comable::Apartment.t(:tenants), comable_apartment.tenants_path
+          li.active
+            = @tenant.name
+
+  .comable-page-body
+    = render 'form'
+    hr
+    .panel.panel-danger
+      .panel-heading type="button" data-toggle="collapse" data-target="#comable-danger"
+        strong
+          span.fa.fa-angle-down>
+          = Comable::Apartment.t(:destroy)
+      #comable-danger.collapse
+        .panel-body
+          p
+            = Comable::Apartment.t(:confirmation_before_destroy)
+          = link_to Comable::Apartment.t(:destroy), comable_apartment.tenant_path(@tenant), method: :delete, class: 'btn btn-danger'

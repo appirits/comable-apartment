@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'uglifier', '~> 2.7.0'
   spec.add_dependency 'bootstrap-sass', '~> 3.3.3'
   spec.add_dependency 'font-awesome-rails', '~> 4.3.0.0'
+  spec.add_dependency 'dynamic_form', '~> 1.1.4'
   spec.add_dependency 'jquery-rails', '~> 3.1.2', '< 4.1'
   spec.add_dependency 'jquery-ui-rails', '~> 5.0.3'
   spec.add_dependency 'raphael-rails', '~> 2.1.2'

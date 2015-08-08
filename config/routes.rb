@@ -6,6 +6,8 @@ Comable::Apartment::Engine.routes.draw do
       sessions: 'comable/apartment/user_sessions'
     }
 
+    resources :tenants
+
     # TODO: Change to 404 page
     get '*path', controller: :dashboard, action: :show
   end
