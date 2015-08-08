@@ -1,7 +1,8 @@
 Comable::Apartment::Engine.routes.draw do
-  scope module: :apartment do
+  constraints Comable::Apartment::Constraint.new do
     root to: 'dashboard#show'
 
-    resource :dashboard, only: :show
+    # TODO: Change to 404 page
+    get '*path', controller: :dashboard, action: :show
   end
 end

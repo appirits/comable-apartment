@@ -6,6 +6,8 @@ module Comable
     after_create :migrate, unless: -> { Rails.env.test? }
 
     class << self
+      # @params request [ActionDispatch::Request] an instance of ActionDispatch::Request
+      # @return [String] The tenant name to switch
       def name_from_request(request)
         tenant = find_by(domain: request.domain) if request.domain.present?
         tenant ||= find_by(name: request.subdomains.first)

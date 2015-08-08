@@ -23,7 +23,6 @@ module Dummy
     config.active_support.deprecation = :log
     config.eager_load = false
     config.root = File.expand_path('../../', __FILE__)
-    config.middleware.use 'Comable::Apartment::Elevator'
   end
 end
 
@@ -33,6 +32,7 @@ Dummy::Application.initialize!
 
 # Routes
 Rails.application.routes.draw do
+  mount Comable::Apartment::Engine, at: '/'
   mount Comable::Core::Engine, at: '/'
   get ':page', controller: :dummy, action: :show
 end

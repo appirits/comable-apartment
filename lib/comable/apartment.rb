@@ -17,7 +17,7 @@ require 'awesome_admin_layout'
 require 'apartment'
 require 'apartment/elevators/generic'
 require 'comable/core'
-require 'comable/apartment/elevator'
+require 'comable/apartment/constraint'
 require 'comable/apartment/engine'
 require 'comable/apartment/version'
 
