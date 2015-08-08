@@ -41,6 +41,12 @@ module Comable
       def tenant_names=(names)
         ::Apartment.configure { |config| config.tenant_names = names }
       end
+
+      def translate(key, options = {})
+        I18n.translate("comable.apartment.#{key}", options)
+      end
+
+      alias_method :t, :translate
     end
   end
 end

@@ -6,12 +6,12 @@ html
       = Comable.app_name
     = stylesheet_link_tag 'comable/apartment/application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'comable/apartment/application', 'data-turbolinks-track' => true
-
     = yield :head
-
     = csrf_meta_tags
 
   body
-    // render_admin_layout :apartment do
-    == render_admin_layout do
+    - if current_comable_user.signed_in?
+      == render_admin_layout do
+        = yield
+    - else
       = yield

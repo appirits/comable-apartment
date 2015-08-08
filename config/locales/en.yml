@@ -1,5 +1,8 @@
 en:
   comable:
     apartment:
+      access_denied: 'Access denied'
       dashboard: 'Dashboard'
+      sign_in: 'Login'
+      sign_out: 'Logout'
       tenants: 'Tenants'

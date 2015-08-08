@@ -1,5 +1,8 @@
 ja:
   comable:
     apartment:
+      access_denied: 'アクセス権がありません'
       dashboard: 'ダッシュボード'
+      sign_in: 'ログイン'
+      sign_out: 'ログアウト'
       tenants: 'テナント'
