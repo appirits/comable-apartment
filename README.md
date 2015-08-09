@@ -18,7 +18,7 @@ Multi-tenancy with [Comable](https://github.com/appirits/comable) using the [Apa
   $ bundle
   ```
 
-Or install it yourself as:
+  Or install it yourself as:
 
   ```bash
   $ gem install comable-apartment
