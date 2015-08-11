@@ -5,6 +5,8 @@ module Comable
 
       helper_method :current_comable_user
 
+      before_filter :authenticate_root_user!
+
       layout 'comable/apartment/application'
 
       def current_ability
@@ -12,11 +14,7 @@ module Comable
       end
 
       def current_comable_user
-        resource = current_root_user
-        resource ||= current_admin_user if defined? Comable::Backend
-        resource ||= current_user if defined? Comable::Frontend
-        resource ||= Comable::User.new
-        resource.with_cookies(cookies)
+        current_root_user || Comable::User.new
       end
 
       private

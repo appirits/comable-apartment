@@ -10,7 +10,7 @@ html
     = csrf_meta_tags
 
   body
-    - if current_comable_user.signed_in?
+    - if current_comable_user.root?
       == render_admin_layout do
         = yield
     - else
