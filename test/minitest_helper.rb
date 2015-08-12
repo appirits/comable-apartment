@@ -8,6 +8,7 @@ require 'rails/test_help'
 require 'minitest/autorun'
 require 'minitest/mock'
 require 'minitest/reporters'
+require 'minitest/matchers'
 require 'shoulda'
 require 'factory_girl_rails'
 
@@ -18,3 +19,11 @@ Minitest::Reporters.use!
 class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
 end
+
+# for Devise
+class ActionController::TestCase
+  include Devise::TestHelpers
+end
+
+# Load support modules
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
