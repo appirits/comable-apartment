@@ -2,14 +2,15 @@ module Comable
   module Apartment
     class Constraint
       def matches?(request)
-        name = Comable::Tenant.name_from_request(request)
+        request_to_apartment? request
+      end
 
-        if name
-          ::Apartment::Tenant.switch!(name)
-          return false
-        end
+      private
 
-        true
+      def request_to_apartment?(request)
+        tenant = Comable::Tenant.from_request(request)
+        tenant.switch!
+        tenant.new_record?
       end
     end
   end

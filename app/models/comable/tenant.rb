@@ -12,11 +12,12 @@ module Comable
 
     class << self
       # @params request [ActionDispatch::Request] an instance of ActionDispatch::Request
-      # @return [String] The tenant name to switch
-      def name_from_request(request)
+      # @return [Tenant] The tenant instance to switch
+      def from_request(request)
         tenant = find_by(domain: request.domain) if request.domain.present?
         tenant ||= find_by(name: request.subdomains.first)
-        tenant.try(:name)
+        tenant ||= new
+        tenant
       end
     end
 
@@ -37,7 +38,11 @@ module Comable
     end
 
     def switch!
-      ::Apartment::Tenant.switch!(name)
+      if name
+        ::Apartment::Tenant.switch!(name)
+      else
+        reset!
+      end
     end
 
     def reset!
