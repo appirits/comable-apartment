@@ -54,6 +54,12 @@ class TenantTest < ActiveSupport::TestCase
     end
   end
 
+  test '#name= should set parameterize name' do
+    invalid_subdomain = 'example.com'
+    subject.name = invalid_subdomain
+    refute_equal subject.name, invalid_subdomain
+  end
+
   private
 
   def mock

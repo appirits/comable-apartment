@@ -3,7 +3,7 @@ require_dependency 'comable/apartment/application_controller'
 module Comable
   module Apartment
     class TenantsController < Comable::Apartment::ApplicationController
-      load_and_authorize_resource class: Comable::Tenant.name
+      load_and_authorize_resource class: Comable::Tenant.name, find_by: :name
 
       def index
         @tenants = @tenants.order(:created_at)
