@@ -1,0 +1,24 @@
+.comable-page
+  .comable-main-fixed-top
+    .comable-page-heading
+      ul.pull-right.list-inline
+        li
+          = link_to_save
+
+      h1.page-header
+        ol.breadcrumb
+          li>
+            = link_to Comable::Apartment.t(:tenants), comable_apartment.tenants_path
+          li>
+            = link_to @tenant.name, comable_apartment.tenant_path(@tenant)
+          li
+            = link_to Comable::Apartment.t(:users), comable_apartment.tenant_users_path(@tenant)
+          li.active
+            = @user.human_id
+            - if @user.bill_full_name
+              small<
+                = Comable.t('honorific', name: @user.bill_full_name)
+
+  .comable-page-body
+    section
+      = render 'form'

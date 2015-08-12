@@ -14,3 +14,9 @@ ja:
       sign_in: 'ログイン'
       sign_out: 'ログアウト'
       tenants: 'テナント'
+      users: 'ユーザー'
+
+  enumerize:
+    comable/user:
+      role:
+        root: 'スーパーユーザー'

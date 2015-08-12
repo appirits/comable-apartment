@@ -31,5 +31,17 @@ module Comable
     def drop
       ::Apartment::Tenant.drop(name)
     end
+
+    def switch
+      ::Apartment::Tenant.switch(name) { yield }
+    end
+
+    def switch!
+      ::Apartment::Tenant.switch!(name)
+    end
+
+    def reset!
+      ::Apartment::Tenant.switch!
+    end
   end
 end

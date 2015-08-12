@@ -14,3 +14,9 @@ en:
       sign_in: 'Login'
       sign_out: 'Logout'
       tenants: 'Tenants'
+      users: 'Users'
+
+  enumerize:
+    comable/user:
+      role:
+        root: 'Superuser'

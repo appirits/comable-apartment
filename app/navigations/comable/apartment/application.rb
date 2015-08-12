@@ -13,6 +13,7 @@ AwesomeAdminLayout.setup(only: Comable::Apartment::ApplicationController) do |co
     item Comable.t('apartment.tenants') do
       link comable_apartment.tenants_path
       icon 'building'
+      active controller.controller_name.in? %w( tenants users )
     end
 
     flex_divider

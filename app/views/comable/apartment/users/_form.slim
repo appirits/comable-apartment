@@ -1,0 +1,24 @@
+= error_messages_for @user
+
+= form_for [comable_apartment, @tenant, @user] do |f|
+  .hidden
+    = f.submit
+
+  fieldset
+    .col-md-3
+      legend
+        = Comable::Apartment.t(:general)
+      .help-block
+
+    .col-md-9
+      .form-group
+        = f.label :role
+        = f.select :role, @user.class.role.options
+
+      .form-group
+        = f.label :email
+        = f.text_field :email
+
+      .form-group
+        = f.label :password
+        = f.password_field :password
