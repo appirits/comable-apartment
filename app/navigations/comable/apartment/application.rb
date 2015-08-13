@@ -2,7 +2,7 @@ AwesomeAdminLayout.setup(only: Comable::Apartment::ApplicationController) do |co
   comable_apartment = controller.comable_apartment
   current_comable_user = controller.current_comable_user
 
-  navigation do
+  navigation :apartment do
     brand Comable.app_name
 
     item Comable.t('apartment.dashboard') do

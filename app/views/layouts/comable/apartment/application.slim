@@ -11,7 +11,7 @@ html
 
   body
     - if current_comable_user.root?
-      == render_admin_layout do
+      = render_admin_layout :apartment do
         = yield
     - else
       = yield
