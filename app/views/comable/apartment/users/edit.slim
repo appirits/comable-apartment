@@ -20,5 +20,15 @@
                 = Comable.t('honorific', name: @user.bill_full_name)
 
   .comable-page-body
-    section
-      = render 'form'
+    = render 'form'
+    hr
+    .panel.panel-danger
+      .panel-heading type="button" data-toggle="collapse" data-target="#comable-danger"
+        strong
+          span.fa.fa-angle-down>
+          = Comable::Apartment.t(:destroy)
+      #comable-danger.collapse
+        .panel-body
+          p
+            = Comable::Apartment.t(:confirmation_before_destroy)
+          = link_to Comable::Apartment.t(:destroy), comable_apartment.tenant_user_path(@tenant, @user), method: :delete, class: 'btn btn-danger'
