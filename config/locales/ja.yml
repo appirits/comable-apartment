@@ -6,7 +6,9 @@ ja:
       confirmation_before_destroy: 'この操作は元に戻せません。本当に削除してもよろしいですか？'
       dashboard: 'ダッシュボード'
       destroy: '削除'
+      edit: '編集'
       general: '一般'
+      manage_tenants: 'テナント管理'
       new: '新規作成'
       not_found: 'レコードが見つかりませんでした。'
       results: '件'
@@ -14,7 +16,10 @@ ja:
       sign_in: 'ログイン'
       sign_out: 'ログアウト'
       tenants: 'テナント'
-      users: 'ユーザー'
+      users: '管理者'
+      visit_store: 'ストアを見る'
+      visit_admin: '管理画面を見る'
+      you_can_manage_tenants_form_this_page: 'このページからテナントを管理することができます。'
 
   enumerize:
     comable/user:

@@ -9,6 +9,7 @@ class Comable::Apartment::TenantsControllerTest < ActionController::TestCase
 
   test 'should get index' do
     tenant = create(:tenant)
+    tenant.create
     get :index
     assert_includes assigns(:tenants), tenant
   end

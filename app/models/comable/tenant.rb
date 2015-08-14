@@ -8,6 +8,9 @@ module Comable
     after_create :create, unless: -> { Rails.env.test? }
     before_destroy :drop, unless: -> { Rails.env.test? }
 
+    # TODO: Associate a new store when create a tenant.
+    belongs_to :store
+
     friendly_id :name
 
     class << self
@@ -23,6 +26,10 @@ module Comable
 
     def name=(name)
       super name.try(:parameterize)
+    end
+
+    def display_name
+      store.try(:name) || name
     end
 
     def create

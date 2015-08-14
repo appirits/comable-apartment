@@ -6,7 +6,9 @@ en:
       confirmation_before_destroy: 'This operation cannot be undone. Would you like to proceed?'
       dashboard: 'Dashboard'
       destroy: 'Destory'
+      edit: 'Edit'
       general: 'General'
+      manage_tenants: 'Manage the tenants'
       new: 'New'
       not_found: 'Record not found.'
       results: 'results'
@@ -14,7 +16,10 @@ en:
       sign_in: 'Login'
       sign_out: 'Logout'
       tenants: 'Tenants'
-      users: 'Users'
+      users: 'Admin users'
+      visit_store: 'Visit the store'
+      visit_admin: 'Visit the admin panel'
+      you_can_manage_tenants_form_this_page: 'You can manage the tenants form this page.'
 
   enumerize:
     comable/user:

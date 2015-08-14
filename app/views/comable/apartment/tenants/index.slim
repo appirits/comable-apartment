@@ -13,16 +13,42 @@
     - if @tenants.empty?
       = Comable::Apartment.t(:not_found)
     - else
-      table.table.table-striped
-        thead
-          th
-            = @tenants.klass.human_attribute_name(:name)
-          th
-            = @tenants.klass.human_attribute_name(:domain)
-        tbody
-          - @tenants.each do |tenant|
-            tr
-              td
-                = link_to tenant.name, comable_apartment.tenant_path(tenant)
-              td
-                = tenant.domain
+      fieldset
+        .row
+          .col-md-3
+            legend
+              = Comable::Apartment.t(:manage_tenants)
+            .help-block
+              = Comable::Apartment.t(:you_can_manage_tenants_form_this_page)
+
+          .col-md-9
+            .row
+              - @tenants.each do |tenant|
+                .col-sm-6
+                  .panel.panel-default
+                    .panel-heading
+                      .pull-right
+                        = link_to comable_apartment.tenant_path(tenant), class: 'btn btn-default' do
+                          i.fa.fa-edit>
+                          = Comable::Apartment.t(:edit)
+                      h4
+                        = tenant.display_name
+                        small<
+                          = tenant.domain
+                    .panel-body
+                      - store_url_options = store_url_options(tenant)
+                      ul.nav.nav-pills.nav-stacked
+                        - if comable.respond_to? :root_url
+                          li
+                            = link_to Comable::Apartment.t(:visit_store), comable.root_url(store_url_options)
+                        - else
+                          li
+                            = link_to Comable::Apartment.t(:visit_store), root_url(store_url_options)
+                        - if comable.respond_to? :admin_root_url
+                          li
+                            = link_to Comable::Apartment.t(:visit_admin), comable.admin_root_url(store_url_options)
+                        li
+                          = link_to comable_apartment.tenant_users_path(tenant) do
+                            = Comable::Apartment.t(:users)
+                            span.badge<
+                              = tenant.switch { Comable::User.with_role(*admin_roles).count }
