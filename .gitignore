@@ -7,10 +7,11 @@
 /gemfiles/*.lock
 /pkg/
 /spec/reports/
-/test/dummy/db/
+/test/dummy/db/schema.rb
 /test/dummy/log/
 /test/dummy/tmp/
 /tmp/
+/vendor/
 *.bundle
 *.so
 *.o
