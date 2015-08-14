@@ -9,6 +9,7 @@ module Comable
       after_filter :reset_tenant
 
       def index
+        @users = @users.with_role(*admin_roles)
       end
 
       def show

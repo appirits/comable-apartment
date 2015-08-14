@@ -10,6 +10,10 @@ module Comable
         subdomain = tenant.name if tenant.domain.blank?
         { domain: domain, subdomain: subdomain }
       end
+
+      def admin_roles
+        Comable::User.role.values - ['customer']
+      end
     end
   end
 end

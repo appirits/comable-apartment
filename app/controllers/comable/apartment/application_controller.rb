@@ -2,6 +2,7 @@ module Comable
   module Apartment
     class ApplicationController < ActionController::Base
       include Comable::ApplicationHelper
+      include Comable::Apartment::ApplicationHelper
 
       helper_method :current_comable_user
 

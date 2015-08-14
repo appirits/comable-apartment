@@ -13,7 +13,7 @@
     .col-md-9
       .form-group
         = f.label :role
-        = f.select :role, @user.class.role.options
+        = f.select :role, @user.class.role.options(only: admin_roles)
 
       .form-group
         = f.label :email
