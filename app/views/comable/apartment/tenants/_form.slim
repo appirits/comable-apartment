@@ -1,0 +1,19 @@
+= error_messages_for @tenant
+
+= form_for [comable_apartment, @tenant] do |f|
+  .hidden
+    = f.submit
+
+  fieldset
+    .col-md-3
+      legend
+        = Comable::Apartment.t(:general)
+
+    .col-md-9
+      .form-group
+        = f.label :name
+        = f.text_field :name, disabled: @tenant.persisted?
+
+      .form-group
+        = f.label :domain
+        = f.text_field :domain

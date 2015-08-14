@@ -2,37 +2,43 @@
 
 [![Build Status](https://img.shields.io/travis/appirits/comable-apartment.svg?style=flat-square)](http://travis-ci.org/appirits/comable-apartment)
 
-TODO: Write a gem description
+Multi-tenancy with [Comable](https://github.com/appirits/comable) using the [Apartment](https://github.com/influitive/apartment) gem.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+1. Add this line to your application's Gemfile:
 
-```ruby
-gem 'comable-apartment'
-```
+  ```ruby
+  gem 'comable-apartment'
+  ```
 
-And then execute:
+2. And then execute:
 
-    $ bundle
+  ```bash
+  $ bundle
+  ```
 
-Or install it yourself as:
+  Or install it yourself as:
 
-    $ gem install comable-apartment
+  ```bash
+  $ gem install comable-apartment
+  ```
 
-Add the following to your `config/application.rb`:
+3. Run the generator:
 
-```ruby
-module MyApplication
-  class Application < Rails::Application
-    ...
+  ```bash
+  $ bin/rake comable_apartment:install:migrations
+  ```
 
-    config.middleware.use 'Comable::Apartment::Elevator'
+4.  Add the following to your `config/routes.rb`:
+
+  ```ruby
+  Rails.application.routes.draw do
+    mount Comable::Apartment::Engine, at: '/'
 
     ...
   end
-end
-```
+  ```
 
 ## Usage
 

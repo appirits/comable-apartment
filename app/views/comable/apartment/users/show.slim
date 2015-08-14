@@ -1,0 +1,33 @@
+.comable-page
+  .comable-page-heading
+    ul.pull-right.list-inline
+      li
+        = link_to comable.edit_admin_user_path(@user), class: 'btn btn-default' do
+          span.fa.fa-edit>
+          = Comable.t('admin.actions.edit')
+
+    h1.page-header
+      ol.breadcrumb
+        li>
+          = link_to Comable::Apartment.t(:tenants), comable_apartment.tenants_path
+        li>
+          = link_to @tenant.name, comable_apartment.tenant_path(@tenant)
+        li
+          = link_to Comable::Apartment.t(:users), comable_apartment.tenant_users_path(@tenant)
+        li.active
+          = @user.human_id
+          - if @user.bill_full_name
+            small<
+              = Comable.t('honorific', name: @user.bill_full_name)
+
+  .comable-page-body
+    section
+      dl.dl-horizontal
+        dt
+          = @user.class.human_attribute_name(:role)
+        dd
+          = @user.role.text
+        dt
+          = @user.class.human_attribute_name(:email)
+        dd
+          = @user.email

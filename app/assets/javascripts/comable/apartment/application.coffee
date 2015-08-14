@@ -1,0 +1,14 @@
+#= require jquery
+#= require jquery.turbolinks
+#= require jquery_ujs
+#= require jquery-ui
+#= require bootstrap-sprockets
+#= require raphael
+#= require morris
+#= require nprogress
+#= require nprogress-turbolinks
+#= require awesome_admin_layout
+#= require comable/apartment/dispatcher
+#= require_tree .
+#= require_self
+#= require turbolinks
