@@ -32,5 +32,5 @@ module HaveAttributes
     Matcher.new(attributes).matches? subject
   end
 
-  Minitest::Test.register_matcher Matcher, :have_attributes
+  ActiveSupport::TestCase.register_matcher Matcher, :have_attributes
 end
