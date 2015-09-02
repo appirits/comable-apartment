@@ -34,7 +34,7 @@ Multi-tenancy with [Comable](https://github.com/appirits/comable) using the [Apa
 
   ```ruby
   Rails.application.routes.draw do
-    mount Comable::Apartment::Engine, at: '/'
+    Comable::Apartment.routes self
 
     ...
   end

@@ -48,6 +48,15 @@ module Comable
       end
 
       alias_method :t, :translate
+
+      def routes(router, options = {})
+        options.reverse_merge! at: '/'
+        router.instance_eval do
+          constraints Comable::Apartment::Constraint do
+            mount Comable::Apartment::Engine, options
+          end
+        end
+      end
     end
   end
 end

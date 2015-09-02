@@ -36,7 +36,7 @@ Dummy::Application.initialize!
 
 # Routes
 Rails.application.routes.draw do
-  mount Comable::Apartment::Engine, at: '/'
+  Comable::Apartment.routes self
   mount Comable::Core::Engine, at: '/'
   get ':page', controller: :dummy, action: :show
 end
