@@ -1,5 +1,5 @@
 Comable::Apartment::Engine.routes.draw do
-  constraints Comable::Apartment::Constraint.new do
+  constraints Comable::Apartment::Constraint do
     root to: 'dashboard#show'
 
     devise_for :root_user, path: :user, class_name: Comable::User.name, module: :devise, router_name: :comable_apartment, controllers: {
