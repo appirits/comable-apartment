@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'apartment', '~> 1.0'
   spec.add_dependency 'comable-core', '~> 0.6'
   spec.add_dependency 'slim-rails', '~> 3.0'
-  spec.add_dependency 'sass-rails' # TODO: '~> 5.0.1'
   spec.add_dependency 'coffee-rails', '>= 3.2.2', '< 4.2'
   spec.add_dependency 'compass-rails', '~> 2.0', '>= 2.0.4'
   spec.add_dependency 'uglifier', '~> 2.7'
