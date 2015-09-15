@@ -1,6 +1,9 @@
 # Comable::Apartment
 
 [![Build Status](https://img.shields.io/travis/appirits/comable-apartment.svg?style=flat-square)](http://travis-ci.org/appirits/comable-apartment)
+[![Code Climate](https://img.shields.io/codeclimate/github/appirits/comable-apartment.svg?style=flat-square)](https://codeclimate.com/github/appirits/comable-apartment)
+[![Dependency Status](https://img.shields.io/gemnasium/appirits/comable-apartment.svg?style=flat-square)](https://gemnasium.com/appirits/comable-apartment)
+[![Gem Version](https://img.shields.io/gem/v/comable-apartment.svg?style=flat-square)](https://rubygems.org/gems/comable-apartment)
 
 Multi-tenancy with [Comable](https://github.com/appirits/comable) using the [Apartment](https://github.com/influitive/apartment) gem.
 
