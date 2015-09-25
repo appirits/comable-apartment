@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'apartment', '~> 1.0', '>= 1.0.1'
-  spec.add_dependency 'comable-core', '~> 0.6'
+  spec.add_dependency 'comable-core', '>= 0.7.0.beta1', '< 0.8.0'
   spec.add_dependency 'slim-rails', '~> 3.0', '>= 3.0.1'
   spec.add_dependency 'sass-rails', '>= 5.0.3', '< 5.1'
   spec.add_dependency 'coffee-rails', '>= 3.2.2', '< 4.2'
